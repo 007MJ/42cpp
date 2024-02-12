@@ -14,9 +14,11 @@ int main (int ac, char **av)
         {
             std:: string str = av[i];
             for (unsigned int j = 0; j < str.length();j++)
-                std::cout << str[j];
-            std::cout << std::endl;
+                std::cout << (char )toupper(str[j]);
+            std::cout << " ";
+            
         }
+        std::cout << std::endl;
     }
     return (0);
 }
