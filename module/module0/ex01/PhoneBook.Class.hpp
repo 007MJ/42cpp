@@ -11,13 +11,15 @@ class PhoneBook {
     PhoneBook();
     ~PhoneBook();
 
-    bool    is_full();
+    bool    isFull();
     void    addProfil(std::string fname, std::string lname, std::string nickname, int numero, int index_p);
     void    showProfil(int index_p);
+    bool    CorrectInput(std::string fname, std::string lname, std::string nickname, int numero);
 
     // methode
     private:
-    Contact m_profil[10];
+    Contact m_profil[8];
+    int     m_index_p;
 };
 
 #endif 

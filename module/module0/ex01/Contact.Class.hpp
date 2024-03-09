@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 23:08:08 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/09 12:13:34 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:43:16 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ class Contact {
     // Contact(std::string fname, std::string lname, std::string nickname, int numero);
     ~Contact();
 
-    int     get_index_contact(int index, Contact profils);
     bool    formProfil(std::string fname, std::string lname, std::string nickname, int numero);
-    int     size_contact(Contact *proile);
     void    showContact(Contact const& profil);
-    bool    CorrectFormProfil
 
     private:
     int         m_numero;
