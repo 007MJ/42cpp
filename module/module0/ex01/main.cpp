@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:15:29 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/10 19:45:48 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:49:09 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,13 +120,16 @@ int main()
                     if (p < 9)
                         p++;
                 }
-                if (i > 9 && j < 8)
+                if (i > 9 && j < 9)
                 {
-                    you.addProfil(fname, lname, nickname, dark, stoi(numero), i);
+                    you.addProfil(fname, lname, nickname, dark, stoi(numero), j);
                     j++;
                 }
                 else 
+                {
+                    i = -1;
                     j = 0;
+                }
             }
         }
         if (cmd == SEARCH)
