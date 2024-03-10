@@ -17,7 +17,6 @@ class PhoneBook {
     PhoneBook();
     ~PhoneBook();
 
-    bool    isFull();
     void    addProfil(std::string fname, std::string lname, std::string nickname, std::string dart, int numero, int index_p);
     void    showProfil(int index_p);
     bool    correctInput(std::string fname, std::string lname, std::string nickname, std::string dart, std::string numero);

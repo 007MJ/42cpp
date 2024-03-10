@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 18:19:01 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/10 18:27:33 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:51:11 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,6 @@ void PhoneBook::addProfil(string fname, string lname, string nickname, string da
 void    PhoneBook::showProfil(int index_p)
 {
     m_profil[index_p].showContact(m_profil[index_p]);
-}
-
-bool PhoneBook::isFull(){    
-    if (m_index_p > 8)
-        return (true);
-    return (false);
 }
 
 // contact 
