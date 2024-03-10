@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 18:19:01 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/09 15:03:16 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/10 18:27:33 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ PhoneBook::~PhoneBook(){
 
 }
 
-void PhoneBook::addProfil(string fname, string lname, string nickname, int numero, int index_p)
+void PhoneBook::addProfil(string fname, string lname, string nickname, string dart, int numero, int index_p)
 {
-    m_profil[index_p].formProfil(fname, lname, nickname, numero);
-    m_index_p += index_p;
+    m_profil[index_p].formProfil(fname, lname, nickname, dart, numero);
+    m_index_p++;
 }
 
 void    PhoneBook::showProfil(int index_p)
@@ -34,8 +34,7 @@ void    PhoneBook::showProfil(int index_p)
     m_profil[index_p].showContact(m_profil[index_p]);
 }
 
-bool PhoneBook::isFull(){
-    
+bool PhoneBook::isFull(){    
     if (m_index_p > 8)
         return (true);
     return (false);
@@ -51,25 +50,43 @@ Contact::~Contact(){
     
 }
 
-bool PhoneBook::CorrectInput(string fname, string lname, string nickname, int numero)
+bool PhoneBook::correctInput(string fname, string lname, string nickname, string dark, string numero)
 {
-    if (
+    bool input = true;
+    if (fname.empty() && lname.empty() && nickname.empty() &&  dark.empty()  &&  numero.empty())
+    {
+        cout << "Error form miss somme information : " ;
+        cout << " First name : " << fname.empty() << " Last name : " << lname << " Dark secret : " << dark << endl;
+        cout << endl;
+        return (input);
+    }
+    for (unsigned long i = 0; i <  numero.length(); i++)
+    {
+            if (isdigit(numero[i]) == 0)
+            {
+                cout << "Numero has alpha : " << numero << endl;
+                input = false;
+                  cout << endl;
+                break ;
+            }
+    }
+    return (input);
 }
 
-void    Contact::showContact(Contact const& profil)
+void    Contact::showContact(Contact const profil)
 {
-    cout << "First name " << profil.m_fname << endl;
-    cout << "Last name  " << profil.m_lname << endl;
-    cout << "Nickname   " << profil.m_nickname << endl;
-    cout << "Numbero    " << profil.m_numero << endl;
+    cout << "First  name    " << profil.m_fname << endl;
+    cout << "Last   name    " << profil.m_lname << endl;
+    cout << "Nick   name    " << profil.m_nickname << endl;
+    cout << "Dart   Secret  " << profil.m_dark << endl;
+    cout << "Numbero        " << profil.m_numero << endl;
 }
 
-bool    Contact::formProfil(string fname, string lname, string nname, int numero)
+void    Contact::formProfil(string fname, string lname, string nickname, string dark, int numero)
 {
     m_fname = fname;
     m_lname = lname;
-    m_nickname = nname;
+    m_nickname = nickname;
     m_numero = numero;
-
-    return (true);
+    m_dark = dark;
 }
