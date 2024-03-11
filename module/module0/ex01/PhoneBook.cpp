@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 18:19:01 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/11 17:07:27 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:21:59 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ PhoneBook::~PhoneBook(){
 
 void PhoneBook::addProfil(string fname, string lname, string nickname, string dart, int numero, int index_p)
 {
+    cout << index_p << endl;
     m_profil[index_p].formProfil(fname, lname, nickname, dart, numero);
-    m_index_p++;
 }
 
 void    PhoneBook::showProfil(int index_p)
@@ -82,7 +82,7 @@ string lenword(string word)
     }
     return (word);
 }
-void    Contact::showContact(Contact const profil)
+void    Contact::showContact(Contact const& profil)
 {
     cout << "First  name    " << profil.m_fname << endl;
     cout << "Last   name    " << profil.m_lname << endl;

@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:15:29 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/11 17:08:23 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:20:48 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void    search_profil(int i, PhoneBook you)
 {
     cout<<"|==========|==========|==========|==========|" << endl;
     cout<<"|index.    |First name|Last name |Nick name |" << endl;
-    you.profilHave(i);            
+    for (int j = 0; j <= i; j++)
+        you.profilHave(j);            
     cout<<"|===========================================|" << endl;
     cout <<"\n";
     int id = manageError(i);
@@ -120,7 +121,7 @@ int main()
             cin >> lname;
             cout << "Enter dart secret   : ";
             cin >> dark;
-            cout << "Enter dart nickname : ";
+            cout << "Enter nickname      : ";
             cin >> nickname;
             cout << "Enter Number        : ";
             cin >> numero;
@@ -133,7 +134,7 @@ int main()
                     if (p < 9)
                         p++;
                 }
-                if (i > 9 && j < 9)
+                else if (i > 9 && j < 9)
                 {
                     you.addProfil(fname, lname, nickname, dark, stoi(numero), j);
                     j++;
