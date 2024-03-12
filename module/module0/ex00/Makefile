@@ -1,17 +1,17 @@
 NAME    =     megaphoe
 RM      =     rm -f
-CCPP  =     g++
+CCPP  	=  		g++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
 SRC     =     megaphone.cpp
 
-OBJ     =     $(SRC:.c=.o)
+OBJ     =     $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CCPP) $(OBJ) $(CFLAG) -o $@
 
-%.o : %.c
+%.o : %.cpp
 	$(CCPP) $(CFLAG) -o $@ -c $^
 
 clean :
