@@ -6,14 +6,19 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:15:29 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/12 00:11:26 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:40:11 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.Class.hpp"
 #include <iomanip>
+#include <iostream>
 #include <string.h>
-using namespace std;
+
+using std::cout;
+using std::endl;
+using std::string;
+using std::getline;
 
 int isInputCorrect(string input)
 {
@@ -45,7 +50,7 @@ int manageError(int i)
         return -1;
     }
     cout << "Enter a index : ";
-    cin >> idStr;
+    std::getline (std::cin,idStr);
     int run = 1;
     bool green = true;
     while (run == 1)
@@ -62,7 +67,7 @@ int manageError(int i)
         if (green == false)
         {
             cout << "Enter a number : ";
-            cin >> idStr;
+            std::getline (std::cin,idStr);
             green = true;
         }
         else
@@ -71,6 +76,7 @@ int manageError(int i)
             idInt = stoi(idStr);
             return (idInt);
         }
+        idStr.erase();
     }
     return (idInt);
 }
@@ -102,6 +108,18 @@ void    search_profil(int p, PhoneBook you)
         cout <<"\n";
     }
 }
+void freestring(std::string fname, std:: string lname, std::string nickname, std::string dark, std::string numero){
+    if (fname.empty() == false)
+        fname.erase();
+    if (lname.empty() == false)
+        lname.erase();
+    if (nickname.empty() == false)
+        nickname.erase();
+    if (numero.empty() == false)
+        nickname.erase();
+    if (dark.empty() == false)
+        dark.erase();
+}
 
 int main()
 {
@@ -116,21 +134,21 @@ int main()
     {
         cout << "YOU HAVE THREE COMMAND : ADD, SEARCH, EXIT" << endl;
         cout << "Enter Command :";
-        cin >> input;
+        std::getline (std::cin, input);
         cmd = isInputCorrect(input);
         if (cmd == ADD)
         {
             string fname, lname, nickname, dark, numero;
             cout << "Enter fisrt name    : ";
-            cin >> fname;
+            std::getline (std::cin, fname);
             cout << "Enter last name     : ";
-            cin >> lname;
+            std::getline (std::cin, lname);
             cout << "Enter dart secret   : ";
-            cin >> dark;
+            std::getline (std::cin, dark);
             cout << "Enter nickname      : ";
-            cin >> nickname;
+            std::getline (std::cin, nickname);
             cout << "Enter Number        : ";
-            cin >> numero;
+            std::getline (std::cin, numero);
             if (you.correctInput(fname, lname, nickname, dark, numero) == true)
             {
                 if (i >= 0 && i <= 1)
@@ -145,6 +163,7 @@ int main()
                     you.addProfil(fname, lname, nickname, dark, numero, i);
                 }
             }
+            freestring(fname, lname, nickname, dark, numero);
         }
         if (cmd == SEARCH)
         {
@@ -152,5 +171,6 @@ int main()
         }
         if (cmd == EXIT)
             run = -1;
+        input.erase();
     }
 }

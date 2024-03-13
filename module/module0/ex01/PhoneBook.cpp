@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 18:19:01 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/12 00:11:52 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:15:48 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.Class.hpp"
 #include <iomanip>
 #include "string"
-using namespace std;
+
+using std::cout;
+using std::endl;
+using std::string;
 
 PhoneBook::PhoneBook()
 {
@@ -62,12 +65,10 @@ bool PhoneBook::correctInput(string fname, string lname, string nickname, string
 }
 // contact 
 Contact::Contact(){
-    
 }
 
 
 Contact::~Contact(){
-    
 }
 
 

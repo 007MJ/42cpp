@@ -6,15 +6,6 @@ using std::cout;
 using std::endl;
 
 
-void wirtefile(string filename, string text)
-{
-    std::ofstream file(filename.c_str(), std::ios::app);
-    if (file){
-        file << text;
-    }else{
-        cout << "can open the file" << endl;
-    }
-}
 std::string changeNameFile(std::string filename){
     if (filename.empty() == false){
         int i;
@@ -25,24 +16,43 @@ std::string changeNameFile(std::string filename){
     return (filename + ".replace");
 }
 
+std::string my_replace(string text, string search, string replace){
+    
+    string newtext;
+    unsigned long pos = 0;
+    unsigned long  foundpos = 0;
+    if (search.empty() == true || replace.empty() == true)
+        return (text);
+    while ((foundpos = text.find(search, pos)) != std::string::npos){
+        newtext += text.substr(pos, foundpos - pos);
+        newtext += replace;
+        cout << "first copy :: " << newtext << endl;
+        pos =  foundpos + search.length();
+        cout << "position "<< pos << " trouve "<< foundpos << " size "<< newtext.length()<< endl;
+    }
+    if (pos < text.length())
+        newtext += text.substr(pos);
+    return (newtext);
+}
+
 std::string  readfile(string filename, string s1, string s2){
     
-    string text;
-    int     pos;
+    string          text;
     std::ifstream file(filename);
     if (file){
         string line;
-        std::ofstream filereplace(changeNameFile(filename));
+        string name = changeNameFile(filename);
+        std::ofstream filereplace(name, std::ios::app);
         if (!text.empty())
             cout << "text" << endl;
         while (std::getline(file, line))
         {
             text.resize(line.length() + 1);
             text = line;
-            pos = text.find(s1);
-            
+            text = my_replace(text, s1, s2);
+            filereplace << text << endl;;
             line.erase();
-            cout << text << endl;
+            text.erase();
         }
         return (text);
     }else{
@@ -51,18 +61,15 @@ std::string  readfile(string filename, string s1, string s2){
     return (text);
 }
 
+
 int main(int ac, char **argv){
 
     if (ac == 4){
         string filename(argv[1]);
-        // cout << "on est :" << *(argv + 1) << endl;
-        // readfile(argv[1]);
-        // string name = changeNameFile(argv[1]);
-        cout << name << endl;
+        readfile(argv[1], argv[2], argv[3]);
     }
     else if (ac > 4 || ac < 4) 
         cout << "Error : number of arguments : " << ac << " not == 4"<< endl;
     else 
         cout << "Error : arguments" << endl;
 }
-//je suis mois

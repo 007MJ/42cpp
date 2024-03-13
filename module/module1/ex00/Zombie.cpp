@@ -12,11 +12,3 @@ void    Zombie::announce(void)
     else
         cout << "<" << nom << ">:" << " BraiiiiiiinnnzzzZ...";
 }
-
-Zombie* Zombie::newZombie(std::string name)
-{
-    Zombie *zoo = new Zombie;
-    nom = name;
-    return (zoo);
-}
-

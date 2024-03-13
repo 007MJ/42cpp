@@ -1,9 +1,10 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
+
+#include "Contact.Class.hpp"
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include "Contact.Class.hpp"
 
 #define ADD     0
 #define SEARCH  1
