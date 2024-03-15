@@ -2,7 +2,7 @@ NAME    =     iphone
 RM      =     rm -f
 CCPP	=     g++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp PhoneBook.cpp 
+SRC     =     main.cpp PhoneBook.cpp Contact.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 

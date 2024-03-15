@@ -1,7 +1,7 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
-#include "Contact.Class.hpp"
+#include "Contact.hpp"
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,10 +11,10 @@
 #define EXIT    2
 #define ERROR   3
 
+
 class PhoneBook {
 
     public:
-    // default
     PhoneBook();
     ~PhoneBook();
 
@@ -23,7 +23,6 @@ class PhoneBook {
     void    profilHave(int index);
     bool    correctInput(std::string fname, std::string lname, std::string nickname, std::string dart, std::string numero);
 
-    // methode
     private:
     Contact m_profil[8];
     int     m_index_p;

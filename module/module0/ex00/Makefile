@@ -1,4 +1,4 @@
-NAME    =     megaphoe
+NAME    =    megaphone
 RM      =     rm -f
 CCPP  	=  		g++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98

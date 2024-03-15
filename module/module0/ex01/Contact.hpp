@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.Class.hpp                                  :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 23:08:08 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/13 17:28:55 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:43:53 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-#define CONTACT_CLASS_HPP
-#include "PhoneBook.Class.hpp"
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
+
 #include <string>
+
 
 class Contact {
     public:

@@ -6,12 +6,14 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:15:29 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/14 14:11:01 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:44:13 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.Class.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 #include <iomanip>
+#include <sstream>
 #include <iostream>
 #include <string.h>
 
@@ -39,6 +41,17 @@ int isInputCorrect(string input)
         return (input.erase(), ERROR);    
     }
 }
+bool isNumber(std::string idStr)
+{
+       for (unsigned long i = 0; i < idStr.length(); i++)
+        {
+            if (isdigit(idStr[i]) == 0)
+            {
+                return (false);
+            }
+         }
+        return (true);
+}
 
 int manageError(int i)
 {
@@ -49,34 +62,24 @@ int manageError(int i)
         cout << "No index " << i << endl;  
         return -1;
     }
-    cout << "Enter a index : ";
-    std::getline (std::cin,idStr);
-    int run = 1;
-    bool green = true;
-    while (run == 1)
+    while (true)
     {
-        for (unsigned long i = 0; i < idStr.length(); i++)
+        cout << "Enter a index : ";
+        std::getline (std::cin,idStr);
+        if (isNumber(idStr) == false)
         {
-            if (isdigit(idStr[i]) == 0)
-            {
-                cout << "only digit " << endl;
-                green = false;
-                break;
-            }
-         }
-        if (green == false)
-        {
-            cout << "Enter a number : ";
-            std::getline (std::cin,idStr);
-            green = true;
+            cout << "only digit" << endl;
+            continue;
         }
-        else
-        {
-            run = -1;
-            idInt = stoi(idStr);
-            return (idInt);
-        }
-        idStr.erase();
+        if (idStr.empty())
+            continue;
+        std::stringstream ss(idStr);
+        ss >> idInt;
+        if (ss.fail())
+            continue;
+        if (idInt > 7)
+            continue;
+        break;
     }
     return (idInt);
 }
@@ -91,15 +94,15 @@ void    search_profil(int p, PhoneBook you)
     int j = 0;
     while (j < p)
     {
-        you.profilHave(j + 1);
+        you.profilHave(j);
         j++;
     }          
     cout<<"|===========================================|" << endl;
     cout <<"\n";
     int id = manageError(p);
-    if (id == -1)
+    if (id <= -1)
         return ;
-    if (id > p)
+    if (id > p - 1)
         cout << "there is no profile with that id : " << id << endl;
     else
     {
@@ -107,18 +110,6 @@ void    search_profil(int p, PhoneBook you)
         you.showProfil(id);
         cout <<"\n";
     }
-}
-void freestring(std::string fname, std:: string lname, std::string nickname, std::string dark, std::string numero){
-    if (fname.empty() == false)
-        fname.erase();
-    if (lname.empty() == false)
-        lname.erase();
-    if (nickname.empty() == false)
-        nickname.erase();
-    if (numero.empty() == false)
-        nickname.erase();
-    if (dark.empty() == false)
-        dark.erase();
 }
 
 int main()
@@ -130,7 +121,7 @@ int main()
     int cmd;
     i = 0;
     p = 0;
-    while (run == 1)
+    while (run == 1 && std::cin.good())
     {
         cout << "YOU HAVE THREE COMMAND : ADD, SEARCH, EXIT" << endl;
         cout << "Enter Command :";
@@ -149,28 +140,26 @@ int main()
             std::getline (std::cin, nickname);
             cout << "Enter Number        : ";
             std::getline (std::cin, numero);
-            if (you.correctInput(fname, lname, nickname, dark, numero) == true)
-            {
-                if (i >= 0 && i <= 8)
+            if (you.correctInput(fname, lname, nickname, dark, numero) == true){
+                if (i < 8)
                 {
-                    i++;
-                    if (p <= 8)
-                        p++;
                     you.addProfil(fname, lname, nickname, dark, numero, i);
+                    i++;
+                    if (p < 8)
+                        p++;
                 }else
                 {
-                    i = 1;
+                    i = 0;
                     you.addProfil(fname, lname, nickname, dark, numero, i);
+                    i++;
                 }
             }
-            freestring(fname, lname, nickname, dark, numero);
         }
-        if (cmd == SEARCH)
+        else if  (cmd == SEARCH)
         {
             search_profil(p, you);
         }
-        if (cmd == EXIT)
+        else if (cmd == EXIT)
             run = -1;
-        input.erase();
     }
 }
