@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:15:29 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/13 17:40:11 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:11:01 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,10 +151,10 @@ int main()
             std::getline (std::cin, numero);
             if (you.correctInput(fname, lname, nickname, dark, numero) == true)
             {
-                if (i >= 0 && i <= 1)
+                if (i >= 0 && i <= 8)
                 {
                     i++;
-                    if (p <= 2)
+                    if (p <= 8)
                         p++;
                     you.addProfil(fname, lname, nickname, dark, numero, i);
                 }else
