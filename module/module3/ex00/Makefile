@@ -1,8 +1,8 @@
-NAME    =     replace
+NAME    =     clap
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp ClapTrap.c
+SRC     =     main.cpp ClapTrap.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 

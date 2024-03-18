@@ -1,7 +1,8 @@
 NAME    =     zombie
 RM      =     rm -f
 CCPP	=     c++
-CFLAG   =     -Wall -Werror -Wextra -std=c++98
+CFLAG   =     -Wall -Werror -Wextra -g -std=c++98 
+#-fsanitize=address
 SRC     =     main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
@@ -21,3 +22,5 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
+
+# valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all 

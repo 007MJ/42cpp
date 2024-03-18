@@ -1,8 +1,8 @@
-NAME    =     pointer
+NAME    =     human
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp HumainA.cpp Weapon.cpp humainB.cpp
+SRC     =     main.cpp HumanA.cpp Weapon.cpp HumanB.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 

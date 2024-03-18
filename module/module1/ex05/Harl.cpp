@@ -5,15 +5,39 @@ using std::cout;
 using std::endl;
 using std::string;
 
+std::string uperCase(std::string level)
+{
+    string newLevel;
+    for (unsigned int i = 0; i < level.length(); i++){
+        newLevel += (char )toupper(level[i]);
+    }
+    return (newLevel);
+}
+
 void Harl::complain(string level){
-    if (level == "DEBUG")
-        debug();
-    if (level == "INFO")
-        info();
-    if (level == "WARNING")
-        warning();
-    if (level == "ERROR")
-        error();
+
+    std::string uppperLevel = uperCase(level);
+
+    void(Harl::*ftpointer[])() = {
+        &Harl::debug,
+        &Harl::error,
+        &Harl::warning,
+    };
+
+    std::string arraystring[4] = {
+        "DEBUG",
+        "ERROR",
+        "WARGNING",
+    };
+
+    for (int i = 0; i < 4; i++){
+
+        if (uppperLevel == arraystring[i])
+        {
+            (this->*ftpointer[i])();
+            return ;
+        }
+    }
 }
 
 void Harl::debug(){

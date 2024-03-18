@@ -9,16 +9,11 @@ ClapTrap::ClapTrap() : m_name("Personnnage x"), m_hit(10), m_energy(10), m_attac
     cout << "Class built !" << endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap &clap) : m_name(clap.getName()), m_hit(clap.getLife()), m_energy(clap.getEnergy()),
- m_attackDommange(getAttackDomage()){
-}
-
-ClapTrap&  ClapTrap::operator=(ClapTrap &clap){
-    this->setEnergy(clap.getEnergy());
-    this->setAttackDomage(getAttackDomage());
-    this->setLife(getLife());
-    this->setName(getName());
-    return (*this);
+ClapTrap::ClapTrap(const ClapTrap &clap){
+    m_name = clap.getName();
+    m_hit = clap.getLife();
+    m_energy = clap.getEnergy();
+    m_attackDommange = clap.m_attackDommange();
 }
 
 ClapTrap::~ClapTrap(){
@@ -54,23 +49,4 @@ int ClapTrap::getEnergy(void){
 
 int ClapTrap::getAttackDomage(void){
     return (m_attackDommange);
-}
-
-
-
-
-void ClapTrap::setLife(unsigned int life){
-    m_hit = life;
-}
-
-void ClapTrap::setName(std::string name){
-    m_name = name;
-}
-
-void ClapTrap::setEnergy(int energy){
-    m_energy = energy;
-}
-
-void ClapTrap::setAttackDomage(int dommageAttack){
-    m_attackDommange = dommageAttack;
 }

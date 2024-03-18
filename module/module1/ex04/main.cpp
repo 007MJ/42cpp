@@ -5,7 +5,6 @@ using std::string;
 using std::cout;
 using std::endl;
 
-
 std::string changeNameFile(std::string filename){
     if (filename.empty() == false){
         int i;
@@ -26,9 +25,7 @@ std::string my_replace(string text, string search, string replace){
     while ((foundpos = text.find(search, pos)) != std::string::npos){
         newtext += text.substr(pos, foundpos - pos);
         newtext += replace;
-        cout << "first copy :: " << newtext << endl;
         pos =  foundpos + search.length();
-        cout << "position "<< pos << " trouve "<< foundpos << " size "<< newtext.length()<< endl;
     }
     if (pos < text.length())
         newtext += text.substr(pos);
@@ -39,7 +36,7 @@ std::string  readfile(string filename, string s1, string s2){
     
     string          text;
     std::ifstream file(filename);
-    if (file){
+    if (file && s1 != s2){
         string line;
         string name = changeNameFile(filename);
         std::ofstream filereplace(name, std::ios::app);
@@ -56,7 +53,10 @@ std::string  readfile(string filename, string s1, string s2){
         }
         return (text);
     }else{
-        cout << "Impossible ouvire : " << filename << endl;
+        if (s1 == s2)
+            cout << "Same arguments" << endl;
+        else
+            cout << "Can't open the file : " << filename << endl;
     }
     return (text);
 }

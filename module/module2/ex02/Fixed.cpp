@@ -1,14 +1,15 @@
 #include "Fixed.hpp"
+#include <iostream>
 
 Fixed::Fixed() : m_number(0){
 }
 
 Fixed::Fixed(const int nb){
-    m_number = nb << 8;
+    m_number = nb << m_saveInt;
 }
 
 Fixed::Fixed(const float nb){
-    m_number  = nb * (1 << 8);
+    m_number  =  int((roundf(nb * (1 << m_saveInt))));
 }
 
 Fixed::~Fixed(){
@@ -20,7 +21,7 @@ Fixed::Fixed(const Fixed& Fix){
 }
 
 int Fixed::getRawBits(void) const {
-    return (m_number >> 8);
+    return (m_number);
 }
 
 void Fixed::setRawBits(int const raw){
@@ -28,21 +29,18 @@ void Fixed::setRawBits(int const raw){
 }
 
 float Fixed::toFloat( void ) const{
-    return ((float)( m_number / (i << 8)));
+    return ((float) m_number / (float)(1 << m_saveInt));
 }
 
 int Fixed::toInt( void ) const{
-    return (m_number >> 8);
+    return (m_number >> m_saveInt);
 }
 
-Fixed Fixed::operator=(const Fixed& fix){
+Fixed&  Fixed::operator=(const Fixed& fix){
 
-    Fixed newFixed;
-
-    newFixed.setRawBits(fix.getRawBits());
-    return (newFixed);
+    this->m_number = fix.getRawBits();
+    return (*this);
 }
-
 
 bool Fixed::operator!=(const Fixed& fix){
 
@@ -91,42 +89,60 @@ bool Fixed::operator<=(const Fixed& fix){
         return (true);
 }
 
-Fixed Fixed::operator+(const Fixed& fix){
+Fixed Fixed::operator+(const Fixed& fix) const{
     Fixed fix3;
 
     fix3.setRawBits(fix.getRawBits() + this->getRawBits());
     return (fix3);
 }
 
-Fixed Fixed::operator-(const Fixed& fix){
+Fixed Fixed::operator-(const Fixed& fix) const {
     Fixed fix3;
 
     fix3.setRawBits(fix.getRawBits() - this->getRawBits());
     return (fix3);
 }
 
-Fixed Fixed::operator*(const Fixed& fix){
+Fixed Fixed::operator*(const Fixed& fix) const{
     Fixed fix3;
 
-    fix3.setRawBits(fix.getRawBits() * this->getRawBits());
+    fix3.setRawBits((fix.getRawBits() * this->m_number) >> m_saveInt);
     return (fix3);
 }
 
-Fixed Fixed::operator/(const Fixed& fix){
+Fixed Fixed::operator/(const Fixed& fix) const {
     Fixed fix3;
 
-    fix3.setRawBits(fix.getRawBits() / this->getRawBits());
+    fix3.setRawBits((this->m_number << m_saveInt ) / fix.getRawBits());
     return (fix3);
 }
 
-Fixed& Fixed::operator++(){
-    m_number++;
+Fixed &Fixed::operator++(){
+    this->m_number++;
     return (*this);
 }
 
-Fixed& Fixed::operator--(){
-    m_number--;
+Fixed Fixed::operator++(int){
+
+    Fixed result(*this);
+
+    this->m_number++;
+    return (result);
+}
+
+
+
+Fixed &Fixed::operator--(){
+    this->m_number--;
     return (*this);
+}
+
+Fixed Fixed::operator--(int){
+
+    Fixed result(*this);
+
+    this->m_number--;
+    return (result);
 }
 
 Fixed Fixed::operator+=(const Fixed& fix){
@@ -143,27 +159,35 @@ Fixed Fixed::operator-=(const Fixed& fix){
     return (fix3);
 }
 
-int Fixed::min(int &nb, int &nb2){
-
-    static int staticNb = 0;
-    if ( nb < nb2)
-        return (staticNb = nb, staticNb);
-    else
-        return (staticNb = nb2, staticNb);
+std::ostream & operator<<(std::ostream& os, const Fixed& fixed) {
+    os << fixed.toFloat();
+    return os;
 }
 
-int Fixed::min(int const &nb, int const &nb2){
-    static int staticNb = 0;
-    if ( nb < nb2)
-        return (staticNb = nb, staticNb);
-    else
-        return (staticNb = nb2, staticNb);
+Fixed& Fixed::min(Fixed &a, Fixed &b) {
+    if (a < b)
+        return (a);
+    else 
+        return (b);
 }
 
-int Fixed::max(int const &nb, int const &nb2){
-    static int staticNb = 0;
-    if ( nb > nb2)
-        return (staticNb = nb, staticNb);
+Fixed& Fixed::max(Fixed &a, Fixed &b) {
+    if (a > b)
+        return (a);
+    else 
+        return (b);
+ }
+
+const Fixed& Fixed::min(const Fixed &a,const Fixed &b){
+    if ( a.getRawBits() < b.getRawBits() )
+        return (a);
     else
-        return (staticNb = nb2, staticNb);
+        return (b);
+}
+
+const Fixed& Fixed::max(const Fixed &a,const Fixed &b){
+    if ( a.getRawBits() > b.getRawBits() )
+        return (a);
+    else
+        return (b);
 }

@@ -1,11 +1,13 @@
 #ifndef HARL_HPP
 #define HARL_HPP
 #include <string>
+
+
 class Harl
 {
     public:
        void complain( std::string level );
-       std::string m_level;
+
     private:
         void debug(void);
         void info(void);

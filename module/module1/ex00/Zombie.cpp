@@ -8,7 +8,18 @@ void    Zombie::announce(void)
 {
     string f = "FOO";
     if (nom == f)
-        cout << nom << ": BraiiiiiiinnnzzzZ...";
+        cout << this->nom << ": BraiiiiiiinnnzzzZ..." << endl;
     else
-        cout << "<" << nom << ">:" << " BraiiiiiiinnnzzzZ...";
+        cout << "<" << this->nom << ">:" << " BraiiiiiiinnnzzzZ..." << endl;
+}
+
+Zombie::~Zombie(){
+    cout << "Zombie destructor call" << endl;
+}
+
+Zombie::Zombie() : nom(){
+    cout << "Zombie destructor call" << endl;
+}
+Zombie::Zombie(std::string name) : nom(name){
+    cout << "zombie string name constructor call " << endl;
 }

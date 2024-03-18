@@ -4,6 +4,7 @@ int main (void)
 {
     Harl karen;
 
-    karen.complain("DEBUG");
+    karen.complain("debug");
+    karen.complain("error");
     return (0);
 }

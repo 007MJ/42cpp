@@ -1,9 +1,8 @@
-NAME    =     replace
+NAME    =     complain
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp 
-
+SRC     =     main.cpp Harl.cpp 
 OBJ     =     $(SRC:.cpp=.o)
 
 all : $(NAME)

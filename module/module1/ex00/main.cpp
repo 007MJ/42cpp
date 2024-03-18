@@ -2,12 +2,10 @@
 
 int main(void)
 {
-    Zombie zombieshow;
-    zombieshow.announce();
+    Zombie bob("bob");
+    bob.announce();
 
-    Zombie *zombiepointeur;
-    zombiepointeur = zombieshow.newZombie("FOO");
-
-    zombiepointeur->randomChump("Brain");
-    delete zombiepointeur;
+    randomChump("FOO");
+    Zombie *lobie = newZombie("brain");
+    delete lobie;
 }

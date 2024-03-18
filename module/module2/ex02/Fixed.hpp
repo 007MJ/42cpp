@@ -1,6 +1,7 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
+#include <iostream>
 
 class Fixed {
 
@@ -19,32 +20,35 @@ class Fixed {
         void setRawBits(int const raw);
 
         // operator
-        Fixed operator=(const Fixed& fix);
+        Fixed &operator=(const Fixed& fix);
         bool operator!=(const Fixed& fix);
         bool operator==(const Fixed& fix);
         bool operator>(const Fixed& fix);
         bool operator>=(const Fixed& fix);
         bool operator<(const Fixed& fix);
         bool operator<=(const Fixed& fix);
-        Fixed operator+(const Fixed& fix);
-        Fixed operator-(const Fixed& fix);
-        Fixed operator*(const Fixed& fix);
-        Fixed operator/(const Fixed& fix);
-        Fixed operator++();
-        Fixed operator--();
+        Fixed operator+(const Fixed& fix) const;
+        Fixed operator-(const Fixed& fix) const ;
+        Fixed operator*(const Fixed& fix) const;
+        Fixed operator/(const Fixed& fix) const;
+        Fixed &operator++();
+        Fixed operator++(int);
+        Fixed &operator--();
+        Fixed operator--(int);
         Fixed operator+=(const Fixed& fix);
         Fixed operator-=(const Fixed& fix);
 
         // more methode 
-        static int min(int &nb, int &nb2);
-        static int max(int &nb, int &nb2);
-        static int min(int const &nb, int const &nb2);
-        static int max(int const &nb, int const &nb2);
+        static Fixed& min(Fixed &a, Fixed &b);
+        static Fixed& max(Fixed &a, Fixed &b);
+        static const Fixed& min(const Fixed &a,const Fixed &b);
+        static const Fixed&max(const Fixed &a, const Fixed &b);
 
     private:
         int m_number;
-        static int m_saveInt;
+        static const int m_saveInt = 8;
 };
 
+std::ostream & operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

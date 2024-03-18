@@ -14,7 +14,7 @@ int main(void)
     string &stringREF = typestring;
 
     cout << "L’adresse de la string en mémoire  " << &typestring << endl;
-    cout << "L’adresse stockée dans stringPTR   " << &stringPTR << endl;
+    cout << "L’adresse stockée dans stringPTR   " << stringPTR << endl;
     cout << "L’adresse stockée dans stringREF   " << &stringREF << endl;
     cout << "\n";
     cout << "La valeur de la string          " << typestring << endl;
