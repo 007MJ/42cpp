@@ -8,6 +8,7 @@ class ClapTrap
     public:
         ClapTrap();
         ClapTrap(ClapTrap &clap);
+        ClapTrap(std::string name);
         ClapTrap &operator=(ClapTrap& clap);
         ~ClapTrap();
         void attack(const std::string& target);
@@ -17,11 +18,12 @@ class ClapTrap
         std::string getName(void);
         int getEnergy(void);
         int getAttackDomage(void);
-
+        
         void setLife (unsigned int life);
         void setName(std::string name);
         void setEnergy(int energy);
         void setAttackDomage(int dommageAttack);
+        bool isEnergy(void);
 
     private:
     std::string         m_name;

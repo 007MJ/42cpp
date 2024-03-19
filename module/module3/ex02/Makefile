@@ -1,8 +1,8 @@
-NAME    =     scav
+NAME    =     Frag
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC     =     main.cpp ClapTrap.cpp FragTrap.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 

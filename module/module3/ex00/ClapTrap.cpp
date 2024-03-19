@@ -6,7 +6,7 @@ using std::endl;
 using std::string;
 
 ClapTrap::ClapTrap() : m_name("Personnnage x"), m_hit(10), m_energy(10), m_attackDommange(0) {
-    cout << "Class built !" << endl;
+    cout << "Constructor member function" << endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap &clap) : m_name(clap.getName()), m_hit(clap.getLife()), m_energy(clap.getEnergy()),
@@ -17,27 +17,47 @@ ClapTrap&  ClapTrap::operator=(ClapTrap &clap){
     this->setEnergy(clap.getEnergy());
     this->setAttackDomage(getAttackDomage());
     this->setLife(getLife());
-    this->setName(getName());
+    this->m_name = clap.getName();
     return (*this);
 }
 
+bool    ClapTrap::isEnergy(void){
+    if (m_energy <= 0)
+        return (m_energy = 0, false);
+    else
+        return (true);
+}
+
 ClapTrap::~ClapTrap(){
-    cout << "Class destroyer !" << endl;
+    cout << "destructor member function " << endl;
+}
+ClapTrap::ClapTrap(string name) : m_name(name), m_hit(10), m_energy(10), m_attackDommange(0) {
+    cout << "Constructor member function !" << endl;
 }
 
 void ClapTrap::attack(const string &target){
-    cout << "ClapTrap " << m_name <<  " attacks " << target << " causing " << m_attackDommange << " points of damage!" << endl;
+    if (isEnergy())
+    {
+        cout << "ClapTrap " << m_name <<  " attacks " << target << " causing " << m_attackDommange << " points of damage!" << endl;
+        m_energy -= 1;
+    }
+    else 
+        cout << "No more Energy " << endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-
     cout << "ClapTrap " << m_name <<  " take Domage of " <<  amount << endl;
     m_hit -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    cout << "ClapTrap " << m_name <<  " Be Repaired of  " <<  amount << endl;
-    m_hit += amount;
+    if (isEnergy())
+    {
+        cout << "ClapTrap " << m_name <<  " Be Repaired of  " <<  amount << endl;
+        m_energy -= 1;
+        m_hit += amount;
+    }else
+        cout << "No more Energy " << endl;
 }
 
 unsigned int ClapTrap::getLife(){
