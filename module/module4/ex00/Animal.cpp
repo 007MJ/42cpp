@@ -2,27 +2,33 @@
 
 
 Animal::Animal(){
-    cout << " Default constructor " << endl;
+    cout << "---------------------------" << endl;
+    cout << "Animal Default constructor " << endl;
+    cout << "---------------------------" << endl;
 }
 
 Animal::Animal (string name) : type(name){
-    cout << " Constructor  whit Parameter" << endl;
-
+    cout << "---------------------------" << endl;
+    cout << "Animal Constructor  whit Parameter" << endl;
+    cout << "---------------------------" << endl;
 }
 
 Animal::Animal(Animal &object){
     this->type = object.getType();
 }
 
+void Animal::makeSound() const{
+    cout << "Animal sound .............." << endl;
+}
 Animal &Animal::operator=(Animal &object){
     this->type = object.getType();
     return (*this);
 }
 
 Animal::~Animal(){
-    cout << " Default Deconstructor " << endl;
+    cout << "Animal Default Deconstructor " << endl;
 }
 
-string    Animal::getType(){
+string    Animal::getType() const {
     return (type);
 }

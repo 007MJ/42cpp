@@ -2,7 +2,7 @@ NAME    =    animal
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp Animal.cpp 
+SRC     =     main.cpp Animal.cpp Cat.cpp Dog.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 
