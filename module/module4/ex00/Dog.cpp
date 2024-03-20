@@ -1,13 +1,13 @@
 #include "Dog.hpp"
 
-void Dog::makeSoud() const {
-    cout << " ouaf ouaf ouaf ouaf ouaf ouaf " << endl;
+void Dog::makeSound() const {
+    cout << "Ouaf ouaf ouaf ouaf ouaf ouaf " << endl;
 }
 
 Dog::Dog() : Animal(){
     this->type = "Dog";
     cout << "------------------------" << endl;
-    cout << " Dog Default constructor" << endl;
+    cout << "Dog Default constructor" << endl;
     cout << "------------------------" << endl;
 }
 

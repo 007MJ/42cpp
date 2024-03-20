@@ -9,10 +9,10 @@ using std::endl;
 class Dog: public Animal {
     
     public:
-        virtual void   makeSoud() const;
+      virtual void   makeSound() const;
         Dog();
         Dog(std:: string name);
-        virtual ~Dog();
+      virtual ~Dog();
 
 };
 

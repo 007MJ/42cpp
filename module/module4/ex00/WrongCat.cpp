@@ -1,26 +1,24 @@
-#include "Animal.hpp"
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-
-void Cat::makeSound() const {
+void WRONGCat::makeSound() const {
     cout << "meow meow meow meow" << endl;
 }
 
-Cat::Cat() : Animal(){
-    this->type = "Cat";
+WRONGCat::WRONGCat() : WrongAnimal(){
+    this->type = "WRONGCat";
     cout << "________________________" << endl;
-    cout << "Cat Default constructor" << endl;
+    cout << "WRONGCat Default constructor" << endl;
     cout << "------------------------" << endl;
 }
 
-Cat::Cat(std::string type) : Animal(type) {
+WRONGCat::WRONGCat(std::string type) : WrongAnimal(type) {
     cout << "________________________" << endl;
     cout << "Cat Default constructor" << endl;
     cout << "------------------------" << endl;
 } 
 
-Cat::~Cat(){
+WRONGCat::~WRONGCat(){
     cout << "________________________" << endl;
-    cout << "Cat Default Deconstructor" << endl;
+    cout << "WRONGCat Default Deconstructor" << endl;
     cout << "------------------------" << endl;
 }

@@ -9,10 +9,10 @@ using std::endl;
 class Cat : public Animal
 {
     public:
-        virtual void makeSoud() const ;
+       virtual  void makeSound() const ;
         Cat();
         Cat(std::string type);
-        virtual ~Cat();
+       virtual  ~Cat();
 };
 
 #endif
