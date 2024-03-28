@@ -11,7 +11,6 @@ class Dog: public Animal {
     public:
       virtual void   makeSound() const;
         Dog();
-        Dog(std:: string name);
       virtual ~Dog();
 
 };

@@ -4,14 +4,28 @@ void Dog::makeSound() const {
     cout << "Ouaf ouaf ouaf ouaf ouaf ouaf " << endl;
 }
 
-Dog::Dog() : Animal("Dog"){
+
+Dog::Dog(): Animal("Dog"){
+    this->brain = new Brain;
     cout << "------------------------" << endl;
-    cout << "Dog Default constructor" << endl;
+    cout << "Dog Default constructor with parameter" << endl;
     cout << "------------------------" << endl;
+}
+
+Brain* Dog::getBrain() const{
+    return (this->brain);
+}
+
+
+Dog &Dog::operator=(Dog &oobject){
+    delete this->brain;
+    this->brain = new Brain(*(oobject.getBrain()));
+    return (*this);
 }
 
 
 Dog::~Dog(){
+    delete this->brain;
     cout << "---------------------------------" << endl;
     cout << "Dog Default Desconstuctor" << endl;
     cout << "---------------------------------" << endl;

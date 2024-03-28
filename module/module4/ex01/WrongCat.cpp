@@ -11,6 +11,11 @@ WRONGCat::WRONGCat() : WrongAnimal(){
     cout << "------------------------" << endl;
 }
 
+WRONGCat::WRONGCat(std::string type) : WrongAnimal(type) {
+    cout << "________________________" << endl;
+    cout << "Cat Default constructor" << endl;
+    cout << "------------------------" << endl;
+} 
 
 WRONGCat::~WRONGCat(){
     cout << "________________________" << endl;

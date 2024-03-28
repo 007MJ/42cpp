@@ -11,7 +11,6 @@ class Cat : public Animal
     public:
        virtual  void makeSound() const ;
         Cat();
-        Cat(std::string type);
        virtual  ~Cat();
 };
 
