@@ -3,7 +3,7 @@ RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -g -std=c++98 
 #-fsanitize=address
-SRC     =     main.cpp ../client/client.cpp
+SRC     =     main.cpp client.cpp comptes.cpp
 OBJ     =     $(SRC:.cpp=.o)
 
 all : $(NAME)
