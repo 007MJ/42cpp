@@ -1,8 +1,8 @@
-NAME    =     iphone
+NAME    =     human
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp PhoneBook.cpp Contact.cpp
+SRC     =     main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 

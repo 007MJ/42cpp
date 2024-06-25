@@ -7,6 +7,7 @@ class Harl
 {
     public:
        void complain( std::string level );
+       void(Harl::*ftpointer[4])(void);
 
     private:
         void debug(void);

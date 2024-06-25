@@ -39,7 +39,7 @@ std::string  readfile(string filename, string s1, string s2){
     if (file && s1 != s2){
         string line;
         string name = changeNameFile(filename);
-        std::ofstream filereplace(name, std::ios::app);
+        std::ofstream filereplace(name, std::ios::trunc);
         if (!text.empty())
             cout << "text" << endl;
         while (std::getline(file, line))

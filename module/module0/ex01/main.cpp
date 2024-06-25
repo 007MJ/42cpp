@@ -6,7 +6,7 @@
 /*   By: mnshimiy <mnshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:15:29 by mnshimiy          #+#    #+#             */
-/*   Updated: 2024/03/15 17:44:13 by mnshimiy         ###   ########.fr       */
+/*   Updated: 2024/05/11 01:31:14 by mnshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,9 +156,7 @@ int main()
             }
         }
         else if  (cmd == SEARCH)
-        {
             search_profil(p, you);
-        }
         else if (cmd == EXIT)
             run = -1;
     }

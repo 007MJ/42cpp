@@ -8,11 +8,8 @@ void    Weapon::setType(std::string setttype){
     type = setttype;
 }
 
-Weapon::~Weapon(){
-}
+Weapon::~Weapon(){}
 
-Weapon::Weapon() : type(){
-}
+Weapon::Weapon() : type(){}
 
-Weapon::Weapon(std::string t) : type(t){
-}
+Weapon::Weapon(std::string t) : type(t){}

@@ -1,4 +1,4 @@
-NAME    =    brain
+NAME    =    wrongcat
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98

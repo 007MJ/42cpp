@@ -1,8 +1,8 @@
-NAME    =     iphone
+NAME    =    abstraite
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp PhoneBook.cpp Contact.cpp
+SRC     =     main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 

@@ -1,8 +1,8 @@
-NAME    =     iphone
+NAME    =     Zombie
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp PhoneBook.cpp Contact.cpp
+SRC     =     main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 
