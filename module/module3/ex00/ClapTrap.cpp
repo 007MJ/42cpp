@@ -6,14 +6,16 @@ using std::endl;
 using std::string;
 
 ClapTrap::ClapTrap() : m_name("Personnnage x"), m_hit(10), m_energy(10), m_attackDommange(0) {
-    cout << "Constructor member function" << endl;
+    cout << "Default constructor" << endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap &clap) : m_name(clap.getName()), m_hit(clap.getLife()), m_energy(clap.getEnergy()),
  m_attackDommange(getAttackDomage()){
+    cout << "Copy constructor" << endl;
 }
 
 ClapTrap&  ClapTrap::operator=(ClapTrap &clap){
+    cout << "constructor operator =" << endl;
     this->setEnergy(clap.getEnergy());
     this->setAttackDomage(getAttackDomage());
     this->setLife(getLife());
@@ -29,10 +31,10 @@ bool    ClapTrap::isEnergy(void){
 }
 
 ClapTrap::~ClapTrap(){
-    cout << "destructor member function " << endl;
+    cout << "Destructor member function " << endl;
 }
 ClapTrap::ClapTrap(string name) : m_name(name), m_hit(10), m_energy(10), m_attackDommange(0) {
-    cout << "Constructor member function !" << endl;
+    cout << "Constructor " << name  << endl;
 }
 
 void ClapTrap::attack(const string &target){

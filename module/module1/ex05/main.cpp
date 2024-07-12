@@ -4,10 +4,10 @@ int main (void)
 {
     Harl karen;
 
-    // karen.complain("debug");
+    karen.complain("DEBUG");
     // karen.complain("");
     // karen.complain("error");
-    karen.complain("info");
+    // karen.complain("info");
     // karen.complain("warning");
     return (0);
 }

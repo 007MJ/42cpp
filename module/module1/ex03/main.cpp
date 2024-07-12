@@ -5,17 +5,19 @@
 
 int main()
 {
-        Weapon club = Weapon("crude spiked club");
+        Weapon club = Weapon("red sword");
         HumanA bob("Bob", club);
         bob.attack();
-        club.setType("some other type of club");
+        std::cout << "bob change the Weapon ..." << std::endl;
+        club.setType("blue sword");
         bob.attack();
 
-        Weapon club = Weapon("crude spiked club");
+        Weapon dival = Weapon("blue Dragon");
         HumanB jim("Jim");
-        jim.setWeapon(club);
+        jim.setWeapon(dival);
         jim.attack();
-        club.setType("some other type of club");
+        std::cout << "Dival change the Weapon .." << std::endl;
+        club.setType("red Dragon");
         jim.attack();
         
     return 0;

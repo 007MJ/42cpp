@@ -10,7 +10,7 @@ class Fixed {
         Fixed(const Fixed& Fix);
         int getRawBits(void) const;
         void setRawBits(int const raw);
-        Fixed operator=(const Fixed& fix);
+        Fixed &operator=(const Fixed& fix);
 
     private:
         int m_number;

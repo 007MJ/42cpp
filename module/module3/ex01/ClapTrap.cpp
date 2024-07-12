@@ -6,7 +6,7 @@ using std::endl;
 using std::string;
 
 ClapTrap::ClapTrap() : m_name("Personnnage x"), m_hit(10), m_energy(10), m_attackDommange(0) {
-    cout << "Constructor member function" << endl;
+    cout << " ClapTrap Default Constructor " << endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap &clap) : m_name(clap.getName()), m_hit(clap.getLife()), m_energy(clap.getEnergy()),
@@ -14,6 +14,7 @@ ClapTrap::ClapTrap(ClapTrap &clap) : m_name(clap.getName()), m_hit(clap.getLife(
 }
 
 ClapTrap&  ClapTrap::operator=(ClapTrap &clap){
+    cout << " ClapTrap Constructor operator =" << endl;
     this->setEnergy(clap.getEnergy());
     this->setAttackDomage(getAttackDomage());
     this->setLife(getLife());
@@ -36,6 +37,7 @@ ClapTrap::ClapTrap(string name) : m_name(name), m_hit(10), m_energy(10), m_attac
 }
 
 void ClapTrap::attack(const string &target){
+    cout << "Attack from the ClapTrap" << endl;
     if (isEnergy())
     {
         cout << "ClapTrap " << m_name <<  " attacks " << target << " causing " << m_attackDommange << " points of damage!" << endl;

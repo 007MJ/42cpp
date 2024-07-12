@@ -14,7 +14,7 @@ void    Zombie::announce(void)
 }
 
 Zombie::~Zombie(){
-    cout << "Zombie destructor call" << endl;
+    cout << "Zombie "<< this->nom << " destructor call" << endl;
 }
 
 Zombie::Zombie() : nom(){

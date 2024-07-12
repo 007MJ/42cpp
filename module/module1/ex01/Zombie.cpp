@@ -9,9 +9,8 @@ void    Zombie::announce(void){
     string f = "Foo";
     if (m_nom == f)
         cout << m_nom << ": BraiiiiiiinnnzzzZ..." << endl;
-    else{
+    else
         cout << "<" << m_nom << ">:" << " BraiiiiiiinnnzzzZ..." << endl;
-     }
 }
 
 Zombie::Zombie(std::string name) : m_nom(name){
@@ -23,7 +22,7 @@ Zombie::Zombie(){
 }
 
 Zombie::~Zombie(){
-    cout << "Zombie destructor call" << endl;
+    cout << "Zombie "<< this->m_nom << " destructor call" << endl;
     m_nom.empty();
 }
 

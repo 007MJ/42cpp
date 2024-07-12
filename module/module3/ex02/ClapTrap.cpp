@@ -31,6 +31,7 @@ bool    ClapTrap::isEnergy(void){
 ClapTrap::~ClapTrap(){
     cout << "ClapTrap Destructor member function " << endl;
 }
+
 ClapTrap::ClapTrap(string name) : m_name(name), m_hit(10), m_energy(10), m_attackDommange(0) {
     cout << "ClapTrap Constructor member function" << endl;
 }

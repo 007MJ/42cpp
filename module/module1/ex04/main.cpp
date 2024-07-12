@@ -68,8 +68,6 @@ int main(int ac, char **argv){
         string filename(argv[1]);
         readfile(argv[1], argv[2], argv[3]);
     }
-    else if (ac > 4 || ac < 4) 
-        cout << "Error : number of arguments : " << ac << " not == 4"<< endl;
     else 
-        cout << "Error : arguments" << endl;
+        cout << "Error : number of arguments "<< endl;
 }

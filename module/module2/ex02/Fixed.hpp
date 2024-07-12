@@ -35,8 +35,8 @@ class Fixed {
         Fixed operator++(int);
         Fixed &operator--();
         Fixed operator--(int);
-        Fixed operator+=(const Fixed& fix);
-        Fixed operator-=(const Fixed& fix);
+        Fixed& operator+=(const Fixed& fix);
+        Fixed& operator-=(const Fixed& fix);
 
         // more methode 
         static Fixed& min(Fixed &a, Fixed &b);

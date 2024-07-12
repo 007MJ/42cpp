@@ -18,10 +18,12 @@ int main()
     delete j;
     delete i;
 
-
 cout << "====================================" << endl;
     const WrongAnimal* met = new WrongAnimal();
     const WrongAnimal *jj = new WRONGCat();
     std::cout << jj->getType() << " " << std::endl;
     met->makeSound();
+    jj->makeSound();
+    delete met;
+    delete jj;
 }
