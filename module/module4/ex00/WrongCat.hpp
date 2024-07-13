@@ -9,12 +9,14 @@ using std::string;
 using std::cout;
 using std::endl;
 
-class WRONGCat : public WrongAnimal
+class WrongCat : public WrongAnimal
 {
     public:
         void makeSound() const ;
-        WRONGCat();
-         ~WRONGCat();
+        WrongCat();
+        WrongCat(WrongCat &wc);
+        WrongCat& operator=(WrongCat &wc);
+         ~WrongCat();
 };
 
 

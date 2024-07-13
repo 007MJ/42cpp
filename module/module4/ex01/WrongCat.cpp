@@ -5,7 +5,7 @@ void WRONGCat::makeSound() const {
 }
 
 WRONGCat::WRONGCat() : WrongAnimal(){
-    this->type = "WRONGCat";
+    this->type = "WrongCat";
     cout << "WRONGCat Default constructor" << endl;
 }
 

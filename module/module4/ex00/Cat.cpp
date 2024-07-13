@@ -12,6 +12,15 @@ Cat::Cat() : Animal("Cat"){
     cout << "------------------------" << endl;
 }
 
+Cat::Cat(Cat &c)
+{
+    this->type = c.getType();
+}
+
+Cat &Cat::operator=(Cat &c){
+    this->type = c.getType();
+    return (*this);
+}
 
 Cat::~Cat(){
     cout << "________________________" << endl;

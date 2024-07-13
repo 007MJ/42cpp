@@ -10,6 +10,14 @@ Dog::Dog() : Animal("Dog"){
     cout << "------------------------" << endl;
 }
 
+Dog::Dog(Dog &g){
+    this->type = g.getType();
+}
+
+Dog &Dog::operator=(Dog &g){
+    this->type = g.getType();
+    return (*this);
+}
 
 Dog::~Dog(){
     cout << "---------------------------------" << endl;

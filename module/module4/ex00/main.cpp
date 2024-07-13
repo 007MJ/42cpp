@@ -20,7 +20,7 @@ int main()
 
 cout << "====================================" << endl;
     const WrongAnimal* met = new WrongAnimal();
-    const WrongAnimal *jj = new WRONGCat();
+    const WrongAnimal *jj = new WrongCat();
     std::cout << jj->getType() << " " << std::endl;
     met->makeSound();
     jj->makeSound();
