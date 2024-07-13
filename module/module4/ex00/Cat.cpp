@@ -6,14 +6,17 @@ void Cat::makeSound() const {
     cout << "meow meow meow meow" << endl;
 }
 
-Cat::Cat() : Animal("Cat"){
+Cat::Cat(){
+    this->type = "Cat";
     cout << "________________________" << endl;
     cout << "Cat Default constructor" << endl;
     cout << "------------------------" << endl;
 }
 
-Cat::Cat(Cat &c)
-{
+Cat::Cat(Cat &c){
+    cout << "________________________" << endl;
+    cout << "Cat copy constructor" << endl;
+    cout << "------------------------" << endl;
     this->type = c.getType();
 }
 

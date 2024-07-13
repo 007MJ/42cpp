@@ -5,7 +5,6 @@
 
 int main()
 {
-    const   Animal;
     const Dog* dog_j = new Dog();
     const Cat* cat_i = new Cat();
     std::cout << "now cat sound -> " ;

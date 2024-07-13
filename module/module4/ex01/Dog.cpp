@@ -5,7 +5,7 @@ void Dog::makeSound() const {
 }
 
 
-Dog::Dog(): Animal("Dog"){
+Dog::Dog(){
     this->brain = new Brain;
     cout << "Dog Default constructor with parameter" << endl;
 }
