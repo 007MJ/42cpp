@@ -1,18 +1,24 @@
 #include "WrongCat.hpp"
 
-void WRONGCat::makeSound() const {
+void WrongCat::makeSound() const {
     cout << "meow meow meow meow" << endl;
 }
 
-WRONGCat::WRONGCat() : WrongAnimal(){
+WrongCat::WrongCat() {
     this->type = "WrongGCat";
-    cout << "WRONGCat Default constructor" << endl;
+    cout << "WrongCat Default constructor" << endl;
 }
 
-WRONGCat::WRONGCat(std::string type) : WrongAnimal(type) {
-    cout << "Cat Default constructor" << endl;
-} 
+WrongCat::WrongCat(WrongCat &wc){
+    this->type = wc.getType();
+}
 
-WRONGCat::~WRONGCat(){
-    cout << "WRONGCat Default Deconstructor" << endl;
+
+WrongCat& WrongCat::operator=(WrongCat &wr){
+    this->type = wr.getType();
+    return (*this);
+}
+
+WrongCat::~WrongCat(){
+    cout << "WrongCat Default Deconstructor" << endl;
 }

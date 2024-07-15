@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(ScavTrap &scav){
 }
 
 ScavTrap::~ScavTrap() {
-    cout << "ScavTrap deconstructor memner fucnntion  " << endl;
+    cout << "ScavTrap deconstructor" << endl;
 }
 
 ScavTrap::ScavTrap() : ClapTrap("ninja of leaf"){
@@ -29,14 +29,6 @@ ScavTrap::ScavTrap() : ClapTrap("ninja of leaf"){
     this->m_attackDommange = 20;
     this->m_energy = 50;
     this->m_hit = 100;
-}
-
-
-ScavTrap::ScavTrap(ScavTrap &clap)){
-    this->m_name = clap.m_name;
-    this->m_hit = clap.m_hit;
-    this->m_energy = clap.m_energy;
-    this->m_attackDommange = clap.m_attackDommange;
 }
 
 

@@ -10,5 +10,10 @@ int main()
     delete j;//should not create a leak
     delete i;
     
+    Dog a;
+    Dog b;
+    
+    b = a;
+
     return 0;
 }

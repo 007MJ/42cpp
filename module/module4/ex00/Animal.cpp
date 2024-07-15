@@ -8,11 +8,6 @@ Animal::Animal(){
     cout << "---------------------------" << endl;
 }
 
-// Animal::Animal (string name) : type(name){
-//     cout << "---------------------------" << endl;
-//     cout << "Animal Constructor  whit Parameter" << endl;
-//     cout << "---------------------------" << endl;
-// }
 
 Animal::Animal(Animal &object){
     this->type = object.getType();

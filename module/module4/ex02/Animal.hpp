@@ -17,7 +17,6 @@ class Animal {
    protected:
         std::string type;    
          Animal();
-         Animal(std::string  type);
          Animal(Animal &object);
          Animal &operator=(Animal &object);
 };

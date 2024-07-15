@@ -2,12 +2,10 @@
 
 
 Animal::Animal(){
+    this->type = "Animal";
     cout << "- Animal Default constructor " << endl;
 }
 
-Animal::Animal (string name) : type(name){
-    cout << "- Animal Constructor  whit Parameter" << endl;
-}
 
 Animal::Animal(Animal &object){
     this->type = object.getType();

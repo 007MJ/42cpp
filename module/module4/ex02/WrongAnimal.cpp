@@ -4,9 +4,6 @@ WrongAnimal::WrongAnimal(){
     cout << "WrongAnimal Default constructor " << endl;
 }
 
-WrongAnimal::WrongAnimal (string name) : type(name){
-    cout << "WrongAnimal Constructor  whit Parameter" << endl;
-}
 
 WrongAnimal::WrongAnimal(WrongAnimal &object){
     this->type = object.getType();

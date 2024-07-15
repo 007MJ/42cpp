@@ -7,7 +7,7 @@ void Dog::makeSound() const {
 
 Dog::Dog(){
     this->brain = new Brain;
-    cout << "Dog Default constructor with parameter" << endl;
+    cout << "Dog Default constructor " << endl;
 }
 
 Brain* Dog::getBrain() const{
@@ -16,6 +16,7 @@ Brain* Dog::getBrain() const{
 
 
 Dog &Dog::operator=(Dog &oobject){
+    cout << "Dog operator = " << endl;
     delete this->brain;
     this->brain = new Brain(*(oobject.getBrain()));
     return (*this);

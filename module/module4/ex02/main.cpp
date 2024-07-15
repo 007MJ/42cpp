@@ -17,7 +17,7 @@ int main()
     delete cat_i;
     delete dog_j;
     cout << "|||||||||||||||||||||||||||||||||||||||||| Every thing go wrong ||||||||||||||||||||||||||||||||||||||||||||||||" << endl;
-    const WrongAnimal *wrong_jj = new WRONGCat();
+    const WrongAnimal *wrong_jj = new WrongCat();
 
     std::cout << wrong_jj->getType() << " -> ";
 

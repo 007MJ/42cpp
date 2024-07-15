@@ -4,7 +4,8 @@ void Dog::makeSound() const {
     cout << "Ouaf ouaf ouaf ouaf ouaf ouaf " << endl;
 }
 
-Dog::Dog() : Animal("Dog"){
+Dog::Dog(){
+    this->type = "Dog";
     cout << "------------------------" << endl;
     cout << "Dog Default constructor" << endl;
     cout << "------------------------" << endl;

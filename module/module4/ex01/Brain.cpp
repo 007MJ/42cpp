@@ -17,7 +17,7 @@ Brain::~Brain()
 
 
 Brain::Brain(Brain &object){
-    cout << "- Brain copy  Deconstructor" << endl;
+    cout << "- Brain copy " << endl;
     for (int i = 0; i < 100; i++)
         this->idea[i] = object.getIdea(i);
 }

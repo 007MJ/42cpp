@@ -12,7 +12,6 @@ class Animal {
 
     public:
          Animal();
-     //     Animal(std::string  type);
          Animal(Animal &object);
          Animal &operator=(Animal &object);
         virtual void  makeSound() const;

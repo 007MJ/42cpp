@@ -6,7 +6,8 @@ void Cat::makeSound() const {
     cout << "meow meow meow meow" << endl;
 }
 
-Cat::Cat() : Animal("Cat"){
+Cat::Cat() {
+    this->type = "cat";
     this->brain = new Brain;
     cout << "Cat Default constructor " << endl;
 }
