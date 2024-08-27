@@ -42,7 +42,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap& scav){
  }
 
 void    ScavTrap::guardGate(){
-    cout << m_name << " entered into Gate keeper mode " << endl;
+    cout << m_name << " entered Gatekeeper mode " << endl;
 }
 
 void ScavTrap::attack(const std::string &target){
