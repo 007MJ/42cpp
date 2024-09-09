@@ -13,7 +13,6 @@ int main()
     std::cout << dog_j->getType() << " -> ";
     dog_j->makeSound();
 
-
     delete cat_i;
     delete dog_j;
     cout << "|||||||||||||||||||||||||||||||||||||||||| Every thing go wrong ||||||||||||||||||||||||||||||||||||||||||||||||" << endl;

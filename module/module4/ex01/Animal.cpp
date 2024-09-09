@@ -2,7 +2,7 @@
 
 
 Animal::Animal(){
-    cout << "- Animal Default constructor " << endl;
+    // cout << "- Animal Default constructor " << endl;
 }
 
 
@@ -11,7 +11,7 @@ Animal::Animal(Animal &object){
 }
 
 void Animal::makeSound() const{
-    cout << "Animal sound .............." << endl;
+    // cout << "Animal sound .............." << endl;
 }
 
 Animal &Animal::operator=(Animal &object){
@@ -20,7 +20,7 @@ Animal &Animal::operator=(Animal &object){
 }
 
 Animal::~Animal(){
-    cout << "Animal Default Deconstructor " << endl;
+    // cout << "Animal Default Deconstructor " << endl;
 }
 
 string    Animal::getType() const {

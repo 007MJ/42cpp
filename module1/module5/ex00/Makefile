@@ -1,8 +1,8 @@
-NAME    =     human
+NAME    =    grade
 RM      =     rm -f
-CCPP	=     c++
+CCPP  	=  		g++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRC     =     main.cpp Bureaucrat.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 

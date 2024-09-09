@@ -14,8 +14,10 @@ int main()
     Dog a;
     Dog b;
     
+    
     b = a;
-
+    Cat power;
+    Cat morePower(power);
 
     return 0;
 }

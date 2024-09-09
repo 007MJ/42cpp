@@ -11,8 +11,13 @@ Cat::Cat(){
     cout << "Cat Default constructor " << endl;
 }
 
+Cat::Cat(const Cat &copy){
+    cout << "Cat copy constructor " << endl;
+    this->brain = new Brain(*(copy.getBrain()));
+}
 
 Cat &Cat::operator=(Cat &oobject){
+    cout << "Cat constructor = " << endl;
     delete this->brain;
     this->brain = new Brain(*(oobject.getBrain()));
     return (*this);

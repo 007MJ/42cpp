@@ -10,6 +10,11 @@ Dog::Dog(){
     cout << "Dog Default constructor " << endl;
 }
 
+Dog::Dog(const Dog &copy){
+    this->brain = new Brain(*(copy.getBrain()));
+    cout << "Dog Default constructor " << endl;
+}
+
 Brain* Dog::getBrain() const{
     return (this->brain);
 }

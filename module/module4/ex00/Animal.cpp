@@ -2,7 +2,7 @@
 
 
 Animal::Animal(){
-    this->type = "animal";
+    this->type = "Animal";
     cout << "---------------------------" << endl;
     cout << "Animal Default constructor " << endl;
     cout << "---------------------------" << endl;

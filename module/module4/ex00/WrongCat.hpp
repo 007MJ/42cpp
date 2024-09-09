@@ -16,7 +16,7 @@ class WrongCat : public WrongAnimal
         WrongCat();
         WrongCat(WrongCat &wc);
         WrongCat& operator=(WrongCat &wc);
-         ~WrongCat();
+        ~WrongCat();
 };
 
 

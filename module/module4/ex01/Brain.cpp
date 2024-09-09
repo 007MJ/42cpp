@@ -7,12 +7,12 @@ using std::endl;
 using std::cout;
 
 Brain::Brain(){
-    cout << "- Brain Default constructor" << endl;
+    // cout << "- Brain Default constructor" << endl;
 }
 
 Brain::~Brain()
 {
-    cout << "- Brain Default Deconstructor" << endl;
+    // cout << "- Brain Default Deconstructor" << endl;
 }
 
 

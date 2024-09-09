@@ -17,6 +17,10 @@ int main (void){
     
     a.setAttackDomage(5);
     
+
     for (int i = 0; i < 12 ; i ++)
         a.attack("james");
+    
+    ClapTrap c(a);
+    std::cout << " a energie " << c.isEnergy() << std::endl; 
 }

@@ -11,6 +11,7 @@ class Cat : public Animal
 {
     public:
         Cat();
+        Cat(const Cat &copy);
         virtual  ~Cat();
         Cat &operator=(Cat &object);
         Brain * getBrain() const;
