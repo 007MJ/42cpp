@@ -5,8 +5,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string name) : AForm(nam
 
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm(){}
-
 void ShrubberyCreationForm::execute(Bureaucrat const & executor){
      if (this->getIsSigned())
     {
@@ -15,29 +13,47 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor){
             if (executor.getGrade() <= this->getExecute())
             {
                 std::string nameFile;
-
                 nameFile = this->getName() + "_shrubbery";
-                std::ofstream form;
-                form.open(nameFile, std::fstream::app | std::fstream::trunc);
-                for (int i = 0; i < 3; i++)
+                std::ofstream form(nameFile,  std::ios::trunc);
+                if (form.is_open())
                 {
-                    form << "       _-_ ";
-                    form << "    /~~   ~~ \\ ";
-                    form << " /~~         ~~ \\ ";
-                    form << "{               } ";
-                    form << " \\  _-     -_  / ";
-                    form << "   ~  \\ //  ~ ";
-                    form << "_- -   | | _- _ ";
-                    form << "  _ -  | |   -_ ";
-                    form << "    // \\ ";
-                }
+                    for (int i = 0; i < 3; i++)
+                    {
+                        form << "       _-_ "<<std::endl;
+                        form << "    /~~   ~~ \\ "<<std::endl;
+                        form << " /~~         ~~ \\ "<<std::endl;;
+                        form << "{               } "<<std::endl;
+                        form << " \\  _-     -_  / "<<std::endl;
+                        form << "   ~  \\ //  ~ "<<std::endl;
+                        form << "_- -   | | _ - _ "<<std::endl;
+                        form << "  _ -  | |   -_ "<<std::endl;
+                        form << "      // \\   " << std::endl;
+                        form << "  ||        ||" << std::endl;
+                        form << "  ||        ||" << std::endl;
+                        form << "  ============" << std::endl;
+                    }
+                    form.close();
+                }else
+                    std::cout<< "can't open the file" << std::endl;
             }else{
-                throw ShrubberyCreationForm::GradeTooHighException();
+                throw ShrubberyCreationForm::GradeExecute();
             }
-        }catch(ShrubberyCreationForm::GradeTooHighException &e){
+        }catch(ShrubberyCreationForm::GradeExecute &e){
             std::cout << e.what() << std::endl;
         }
     }else
         std::cout << "The Form is not signed " << std::endl;
 
 }
+
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("form x", 145, 37){}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm &cope){
+    this->setIsSigned(cope.getIsSigned());
+    return (*this);
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &copy) : AForm(copy.getName(), copy.getCanSigned(), copy.getExecute()){
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm(){}

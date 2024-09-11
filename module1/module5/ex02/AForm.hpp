@@ -20,6 +20,7 @@ class AForm {
         bool getIsSigned(void) const;
         int getExecute(void) const;
         int getCanSigned(void) const;
+        void    setIsSigned(bool siigned);
         void execute(Bureaucrat const & executor);
         virtual void beSigned(Bureaucrat &obj);
         
@@ -33,6 +34,14 @@ class AForm {
                 virtual const char *what() const throw();
         };
         class GradeExceed : public std::exception{
+            public:
+                virtual const char *what() const throw();
+        };
+        class GradeCant : public std::exception{
+            public:
+                virtual const char *what() const throw();
+        };
+        class GradeExecute : public std::exception{
             public:
                 virtual const char *what() const throw();
         };

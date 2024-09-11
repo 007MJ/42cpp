@@ -1,31 +1,44 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
+#include <time.h>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string name): AForm(name,72, 45){
-
 }
 
+RobotomyRequestForm::RobotomyRequestForm() : AForm("form x", 72, 45){}
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm &cope){
+    this->setIsSigned(cope.getIsSigned());
+    return (*this);
+}
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &copy) : AForm(copy.getName(), copy.getCanSigned(), copy.getExecute()){
+
+}
 RobotomyRequestForm::~RobotomyRequestForm(){}
+
 
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor){
 
     int tmp = -1;
-    int n = 1;
   if (this->getIsSigned())
     {
-        try {
+        try 
+        {
+            srand(time(NULL));
             if (executor.getGrade() <= this->getExecute())
             {
-                tmp = rand() % n;
-                if (tmp == 1)
+                tmp = rand() % 2;
+                if (tmp == 1){
                     std::cout << "Vrrrrrrrrrrr\nBzzzzzzzzz\nVrrrrrrt-vrrrrrt\nBrrrrrrrrr" << std::endl;
+                    std::cout << "Ensuite, informe que la <target> a été robotomisée avec succès 50% du temps" << std::endl;
+                }
                 else
                     std::cout << "l’opération a échoué "<< std::endl;
             }else{
-                throw RobotomyRequestForm::GradeTooHighException();
+                throw RobotomyRequestForm::GradeExecute();
             }
-        }catch(RobotomyRequestForm::GradeTooHighException &e){
+        }catch(RobotomyRequestForm::GradeExecute &e){
             std::cout << e.what() << std::endl;
         }
     }else

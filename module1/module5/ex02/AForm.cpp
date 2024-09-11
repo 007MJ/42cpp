@@ -18,6 +18,14 @@ const char * AForm::GradeTooHighException::what() const throw(){
     return  ("Grade is above 150");
 }
 
+const char * AForm::GradeCant::what() const throw(){
+    return  ("Cant signed the form");
+}
+
+const char * AForm::GradeExecute::what() const throw(){
+    return  ("Cant execute the form");
+}
+
 const char * AForm::GradeTooLowException::what() const throw(){
     return  ("Grade is lower than 1");
 }
@@ -49,22 +57,30 @@ AForm::AForm(const std::string  name,  const int cansSigned,
     this->_isSigned = false;
 }
 
-void AForm::beSigned(Bureaucrat &obj){
+void AForm::beSigned(Bureaucrat &obj)
+{
     try
     {
-         if (this->_canSigned > 150)
+         if (this->_canSigned >= 150)
             throw  AForm::GradeTooHighException();
-        if (this->_canSigned < 1)
+        if (this->_canSigned <= 1)
             throw AForm::GradeTooLowException();
         if (this->_canSigned <= 150 && this->_canSigned >= 1 && obj.getGrade() <= 150 &&  obj.getGrade() >= 1)
         {
             if (obj.getGrade() <= this->_canSigned  ){
                 this->_isSigned = true;
             }else{
-                throw AForm::GradeTooLowException();
+                throw AForm::GradeCant();
             }
         }
-    }catch(AForm::GradeTooLowException& e){
+    }
+    catch(AForm::GradeTooLowException& e){
+        std::cout << e.what() << std::endl;;
+    }
+    catch(AForm::GradeCant& e){
+        std::cout << e.what() << std::endl;;
+    }
+    catch(AForm::GradeTooHighException& e){
         std::cout << e.what() << std::endl;;
     }
 }
@@ -101,4 +117,9 @@ void AForm::execute(Bureaucrat const & executor){
         }
     }else
         std::cout << "The Form is not signed " << std::endl;
+}
+
+
+void    AForm::setIsSigned(bool siigned){
+    this->_isSigned = siigned;
 }
