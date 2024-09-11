@@ -1,4 +1,8 @@
+#pragma once
 #include <iostream>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat {
     private:
@@ -11,7 +15,9 @@ class Bureaucrat {
         Bureaucrat (Bureaucrat &copy);
         Bureaucrat(std::string const name, int grade);
         std::string const &getName(void) const;
+        void    signForm(AForm &obj);
         int getGrade(void) const;
+        void executeForm(AForm const & form);
         void increment(int);
         void decrement(int);
         ~Bureaucrat();

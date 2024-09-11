@@ -3,13 +3,6 @@
 Bureaucrat::Bureaucrat() {}
 Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat(Bureaucrat &copy) {
-    *this = copy;
-}
-Bureaucrat & Bureaucrat::operator=(Bureaucrat &obj){
-    this->_grade = obj.getGrade();
-    return (*this);
-}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade): _name(name), _grade(grade){
     try{
@@ -26,6 +19,15 @@ Bureaucrat::Bureaucrat(std::string const name, int grade): _name(name), _grade(g
         std::cout <<  e.what() << std::endl;
         return;
     }
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat &copy) {
+    *this = copy;
+}
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat &obj) {
+    this->_grade = obj.getGrade();
+    return (*this);
 }
 
 int Bureaucrat::getGrade(void) const{
@@ -83,17 +85,27 @@ void Bureaucrat::decrement(int more_grade){
 }
 
 const char * Bureaucrat::GradeTooHighException::what() const throw(){
-    return  ("Grade is too high");
+    return  ("Grade is above 150");
 }
 
 const char * Bureaucrat::GradeTooLowException::what() const throw(){
-    return  ("Grade is too Low");
+    return  ("Grade is Lower than 1");
 }
     
 const char * Bureaucrat::GradeExceed::what() const throw(){
     return  ("The grade parameter will exceed");
 }
 
+void Bureaucrat::signForm(AForm &obj){
+    if (obj.getIsSigned())
+        std::cout << this->_name << " signed " <<  obj.getName() << std::endl;
+    else
+        std::cout << this->_name << " couldn’t sign " <<  obj.getName() << " because Rick and Morty didn't approve"<< std::endl;
+}
+void Bureaucrat::executeForm(AForm const & form){
+    if (this->getGrade() <= form.getExecute())
+        std::cout<< this->_name << "executed" << form.getName() << std::endl;
+}
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &obj){
     os << obj.getName() << " ," <<  "bureaucrat grade " <<  obj.getGrade();
