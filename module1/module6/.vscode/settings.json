@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "ostream": "cpp",
         "iosfwd": "cpp",
         "__bit_reference": "cpp",
         "__config": "cpp",
@@ -46,7 +47,6 @@
         "mutex": "cpp",
         "new": "cpp",
         "optional": "cpp",
-        "ostream": "cpp",
         "ratio": "cpp",
         "sstream": "cpp",
         "stdexcept": "cpp",
@@ -59,7 +59,6 @@
         "typeinfo": "cpp",
         "unordered_map": "cpp",
         "utility": "cpp",
-        "vector": "cpp",
-        "filesystem": "cpp"
+        "vector": "cpp"
     }
 }
