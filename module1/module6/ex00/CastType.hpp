@@ -8,12 +8,12 @@ class Casttype {
         double nb;
         Casttype& operator=(Casttype &copy);
         bool isPseudo;
+        Casttype(Casttype &copy);
         bool isnone;
+        Casttype();
 
     public:
-        Casttype(Casttype &copy);
         Casttype(const char  *p_number);
-        Casttype();
         ~Casttype();
         bool findDouble();
         bool findFloat();
