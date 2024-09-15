@@ -2,7 +2,7 @@ NAME    =     base
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp 
+SRC     =     main.cpp  B.cpp C.cpp A.cpp Base.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 
