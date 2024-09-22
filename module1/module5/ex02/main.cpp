@@ -34,17 +34,17 @@ int main(void){
     //     choopi.beSigned(Joker);
     //     choopi.execute(Joker);
     // }
-    {
-        Bureaucrat johnnydepp("deep", 3);
-        ShrubberyCreationForm greenhouse ("greenhouse");
-        greenhouse.beSigned(johnnydepp);
-        greenhouse.execute(johnnydepp);
-    }
+    // {
+    //     Bureaucrat johnnydepp("deep", 3);
+    //     ShrubberyCreationForm greenhouse ("greenhouse");
+    //     greenhouse.beSigned(johnnydepp);
+    //     greenhouse.execute(johnnydepp);
+    // }
 
-    {
-        Bureaucrat johnnydepp("deep", 150);
-        ShrubberyCreationForm greenhouse ("greenhouse");
-        greenhouse.beSigned(johnnydepp);
-        greenhouse.execute(johnnydepp);
-    }
+    // {
+    //     Bureaucrat johnnydepp("deep", 150);
+    //     ShrubberyCreationForm greenhouse ("greenhouse");
+    //     greenhouse.beSigned(johnnydepp);
+    //     greenhouse.execute(johnnydepp);
+    // }
 }
