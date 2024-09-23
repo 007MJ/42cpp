@@ -1,8 +1,8 @@
-NAME    = 	whatever
+NAME    = 	array
 RM      =	rm -f
 CCPP  	=	g++
 CFLAG   =	-Wall -Werror -Wextra -std=c++98
-SRC     =	main.cpp whatever.cpp
+SRC     =	main.cpp 
 
 OBJ     =	$(SRC:.cpp=.o)
 
