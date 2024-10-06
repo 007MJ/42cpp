@@ -41,26 +41,16 @@ std::ostream &operator<<(std::ostream & os , const AForm &obj){
 
 AForm::AForm(const std::string  name,  const int cansSigned, 
     const int execute): _name(name), _canSigned(cansSigned), _execute(execute){
-    try
-    {
+
         if (execute > 150 || cansSigned > 150)
             throw  AForm::GradeTooHighException();
         if (execute < 1 || cansSigned < 1)
             throw AForm::GradeTooLowException();
-    }
-    catch(AForm::GradeTooHighException &e){
-        std::cerr << e.what() << '\n';
-    }
-    catch(AForm::GradeTooLowException &e){
-        std::cerr << e.what() << '\n';
-    }
     this->_isSigned = false;
 }
 
 void AForm::beSigned(Bureaucrat &obj)
 {
-    try
-    {
          if (this->_canSigned >= 150)
             throw  AForm::GradeTooHighException();
         if (this->_canSigned <= 1)
@@ -73,16 +63,6 @@ void AForm::beSigned(Bureaucrat &obj)
                 throw AForm::GradeCant();
             }
         }
-    }
-    catch(AForm::GradeTooLowException& e){
-        std::cout << e.what() << std::endl;;
-    }
-    catch(AForm::GradeCant& e){
-        std::cout << e.what() << std::endl;;
-    }
-    catch(AForm::GradeTooHighException& e){
-        std::cout << e.what() << std::endl;;
-    }
 }
 
 const std::string AForm::getName(void) const{

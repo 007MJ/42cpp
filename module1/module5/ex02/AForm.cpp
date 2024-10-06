@@ -5,9 +5,7 @@ AForm::AForm(const std::string name, bool siigned, const int canSigned, const in
     : _name(name), _isSigned(siigned), _canSigned(canSigned), _execute(execute){
 }
 
-AForm::AForm(AForm &cope) : 
-_name(cope.getName()), _isSigned(cope.getIsSigned()), _canSigned(cope.getCanSigned()), _execute(cope.getExecute()){
-}
+AForm::AForm(AForm &cope): _name(cope.getName()), _isSigned(cope.getIsSigned()), _canSigned(cope.getCanSigned()), _execute(cope.getExecute()){}
 
 AForm &AForm::operator=(const AForm &copy){
     this->_isSigned = copy.getIsSigned();
@@ -41,26 +39,15 @@ std::ostream &operator<<(std::ostream & os , const AForm &obj){
 
 AForm::AForm(const std::string  name,  const int cansSigned, 
     const int execute): _name(name), _canSigned(cansSigned), _execute(execute){
-    try
-    {
         if (execute > 150 || cansSigned > 150)
             throw  AForm::GradeTooHighException();
         if (execute < 1 || cansSigned < 1)
             throw AForm::GradeTooLowException();
-    }
-    catch(AForm::GradeTooHighException &e){
-        std::cerr << e.what() << '\n';
-    }
-    catch(AForm::GradeTooLowException &e){
-        std::cerr << e.what() << '\n';
-    }
     this->_isSigned = false;
 }
 
 void AForm::beSigned(Bureaucrat &obj)
 {
-    try
-    {
          if (this->_canSigned >= 150)
             throw  AForm::GradeTooHighException();
         if (this->_canSigned <= 1)
@@ -73,16 +60,7 @@ void AForm::beSigned(Bureaucrat &obj)
                 throw AForm::GradeCant();
             }
         }
-    }
-    catch(AForm::GradeTooLowException& e){
-        std::cout << e.what() << std::endl;;
-    }
-    catch(AForm::GradeCant& e){
-        std::cout << e.what() << std::endl;;
-    }
-    catch(AForm::GradeTooHighException& e){
-        std::cout << e.what() << std::endl;;
-    }
+
 }
 
 const std::string AForm::getName(void) const{
@@ -104,16 +82,11 @@ int AForm::getCanSigned(void) const{
 void AForm::execute(Bureaucrat const & executor){
     if (this->getIsSigned())
     {
-        try {
-
-            if (executor.getGrade() <= this->getExecute())
-            {
-                std::cout << "can executer the form" << std::endl;
-            }else{
-                throw AForm::GradeTooHighException();
-            }
-        }catch(AForm::GradeTooHighException &e){
-            std::cout << e.what() << std::endl;
+        if (executor.getGrade() <= this->getExecute())
+        {
+            std::cout << "can executer the form" << std::endl;
+        }else{
+            throw AForm::GradeTooHighException();
         }
     }else
         std::cout << "The Form is not signed " << std::endl;

@@ -1,4 +1,4 @@
-#include "intern.hpp"
+#include "Intern.hpp"
 
 typedef AForm (*FormFunction)(std::string cible);
 
@@ -26,14 +26,11 @@ AForm *Intern::makeForm(std::string name, std::string cible)
 
     for (int i = 0; i < 3; i++)
     {
-        std::cout << " search .. ."  << std::endl;
         if (name == name_arr[i])  
         {
-            std::cout << " find .. ."  << std::endl;
             return FormFunction[i](cible);
         }
     }
-    std::cout << " NULL.. ."  << std::endl;
     return (NULL);
 }
 

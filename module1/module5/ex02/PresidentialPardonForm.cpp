@@ -12,22 +12,19 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &copy) : AForm(copy.getName(), copy.getCanSigned(), copy.getExecute()){
 
 }
+
 PresidentialPardonForm::~PresidentialPardonForm(){}
 
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor){
     if (this->getIsSigned())
     {
-        try {
 
-            if (executor.getGrade() <= this->getExecute())
-            {
-              std::cout << "Informe que la " << this->getName() << " a été pardonnée par Zaphod Beeblebrox" << std::endl;   
-            }else{
-                throw PresidentialPardonForm::GradeExecute();
-            }
-        }catch(PresidentialPardonForm::GradeExecute &e){
-            std::cout << e.what() << std::endl;
+        if (executor.getGrade() <= this->getExecute())
+        {
+            std::cout << "Informe que la " << this->getName() << " a été pardonnée par Zaphod Beeblebrox" << std::endl;   
+        }else{
+            throw PresidentialPardonForm::GradeExecute();
         }
     }else
         std::cout << "The Form is not signed " << std::endl;

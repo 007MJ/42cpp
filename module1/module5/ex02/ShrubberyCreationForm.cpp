@@ -8,7 +8,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string name) : AForm(nam
 void ShrubberyCreationForm::execute(Bureaucrat const & executor){
      if (this->getIsSigned())
     {
-        try {
 
             if (executor.getGrade() <= this->getExecute())
             {
@@ -38,12 +37,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor){
             }else{
                 throw ShrubberyCreationForm::GradeExecute();
             }
-        }catch(ShrubberyCreationForm::GradeExecute &e){
-            std::cout << e.what() << std::endl;
-        }
     }else
         std::cout << "The Form is not signed " << std::endl;
-
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("form x", 145, 37){}
