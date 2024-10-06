@@ -3,6 +3,7 @@
 #include "intern.hpp"
 
 int main(void){
+
     // {
     //     Bureaucrat maxWeber("Max Weber", 1);
     //     PresidentialPardonForm USA("USA");
@@ -38,7 +39,6 @@ int main(void){
     //     greenhouse.beSigned(johnnydepp);
     //     greenhouse.execute(johnnydepp);
     // }
-
     {
         Bureaucrat johnnydepp("deep", 1);
         Intern someRandomIntern;

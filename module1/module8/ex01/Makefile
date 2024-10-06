@@ -2,7 +2,7 @@ NAME    =     spand
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp Span.cpp
+SRC     =     main.cpp Span.cpp 
 
 OBJ     =     $(SRC:.cpp=.o)
 

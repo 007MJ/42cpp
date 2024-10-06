@@ -4,20 +4,27 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 class Span {
     private:
-        Span(Span &ob);
-        Span& operator=(Span &ob);
         int size;
         std::vector<int> arr_number;
-
     public :
-        Span(unsigned int N);
-        void addNumber();
-        int shortestSpan();
-        int longestSpan();
+        Span();
         ~Span();
+        Span(const Span &ob);
+        Span(int N);
+        Span& operator=(const Span &ob);
+
+        int                 getSize() const;
+        std::vector<int>    getArray() const;
+
+        void                addNumber(int n);
+        int                 findMin();
+        int                 findMax();
+        int                 shortestSpan();
+        int                 longestSpan();
 };
 
 #endif
