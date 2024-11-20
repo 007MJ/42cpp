@@ -2,7 +2,7 @@ NAME    =     mutant
 RM      =     rm -f
 CCPP	=     c++
 CFLAG   =     -Wall -Werror -Wextra -std=c++98
-SRC     =     main.cpp Span.cpp
+SRC     =     main.cpp MutantStack.cpp
 
 OBJ     =     $(SRC:.cpp=.o)
 
