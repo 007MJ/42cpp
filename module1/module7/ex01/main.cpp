@@ -27,17 +27,17 @@ void isdead(int luck)
 }
 int main(void){
 
-    // {
-    //     int size = 5;
-    //     int *foo = new int(size);
-    //     foo[0] = 23;
-    //     foo[1] = 40;
-    //     foo[2] = 90;
-    //     foo[3] = 23;
-    //     foo[4] = 19;
-    //     iter(foo, size, sayAge);
-    //     delete foo;
-    // }
+    {
+        int size = 5;
+        int *foo = new int(size);
+        foo[0] = 23;
+        foo[1] = 40;
+        foo[2] = 90;
+        foo[3] = 23;
+        foo[4] = 19;
+        iter(foo, size, sayAge);
+        delete foo;
+    }
     {
         int size = 4;
         int *foo = new int(size);

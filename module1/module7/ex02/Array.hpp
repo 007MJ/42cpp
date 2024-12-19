@@ -18,11 +18,14 @@ class Array {
         }
 
         Array(unsigned int n) : len(n){
-            this->array = new T[len];
-            unsigned int  i = 0;
-            while (i < this->len){
-                this->array[i] = 0; 
-                i++;
+            if (len > 0)
+            {
+                this->array = new T[len];
+                unsigned int  i = 0;
+                while (i < this->len){
+                    this->array[i] = 0; 
+                    i++;
+                }
             }
         }
 
@@ -44,14 +47,14 @@ class Array {
                 else
                     std::cout<< "Acces to index : [" <<  this->array[index] << "]"<< std::endl;
             }catch(int i){
-                std::cout << "You are not in the range " << std::endl;
+                std::cout << "segfault ++ acces " << std::endl;
             }
         }
         unsigned int  size() const {return this->len;}
 
         T  getIndex(unsigned int index) const {
             try{
-                if (index > this->len && this->len > 0)
+                if (index > this->len || this->len <= 0)
                     throw 0;
                 else
                     return (this->array[index]);
@@ -62,12 +65,12 @@ class Array {
         }
         void add(T var, unsigned int index){
             try{
-                if (index > this->len && this->len > 0)
+                if (index > this->len  || this->len <= 0)
                     throw 0;
                 else
                     (this->array[index] = var);
             }catch(int i){
-                std::cout << "You are not in the range " << std::endl;
+                std::cout << "You can add in the range" << std::endl;
             }
         }
         ~Array() {
