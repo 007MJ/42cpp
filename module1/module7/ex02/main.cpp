@@ -34,7 +34,6 @@ int main(void){
         //     ArrayTake.size();
 
         // }
-
         {
             unsigned int len = 1;
             Array<char > Arraychar(len);
@@ -42,10 +41,11 @@ int main(void){
             Arraychar.add('c', 0);
             Arraychar.acces(0);
             Arraychar.getIndex(100);
-            std::cout << "==============other============" << std::endl;
+            std::cout << "============== other ============" << std::endl;
             Array<char > ArraycharTAke = Arraychar;
             Arraychar.acces(0);
             ArraycharTAke.add('0', 0);
             ArraycharTAke.acces(0);
         }
+        
 }

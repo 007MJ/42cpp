@@ -76,5 +76,9 @@ class Array {
         ~Array() {
             delete[] this->array;
         }
+
+        T & operator[]Array(){
+            if ()
+        }
 };
 #endif
