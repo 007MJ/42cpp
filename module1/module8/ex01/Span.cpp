@@ -8,7 +8,8 @@ void Span::addNumber(int n){
     {
         this->arr_number[this->size] = n;
         this->size++;
-    }
+    }else
+        throw 0;
 }
 
 // int Span::findMin(int nb, bool look){
